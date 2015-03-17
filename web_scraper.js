@@ -48,7 +48,7 @@ app.get('/scrape', function(req, res) {
             });
             $('#trivia').filter(function(){
                 var data=$(this);
-                console.log(data.children("").text())
+                console.log(data.children().text())
             });
         }
         fs.writeFile('weboutput.json', JSON.stringify(json, null, 4), function(err) {
