@@ -2,5 +2,15 @@
     "title": "The Imitation Game",
     "release": "2014",
     "rating": " 8.2 ",
-    "director": "Morten Tyldum"
+    "description": "\nDuring World War II, mathematician Alan Turing tries to crack the enigma code with help from fellow mathematicians.",
+    "director": "Morten Tyldum",
+    "writers": [
+        "Andrew Hodges",
+        "Graham Moore"
+    ],
+    "actors": [
+        "Benedict Cumberbatch",
+        "Keira Knightley",
+        "Matthew Goode"
+    ]
 }

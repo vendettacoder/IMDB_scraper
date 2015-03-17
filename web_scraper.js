@@ -14,7 +14,10 @@ app.get('/scrape', function(req, res) {
                 title: "",
                 release: "",
                 rating: "",
-                director: ""
+                description:"",
+                director: "",
+                writers:[],
+                actors:[]
             };
             $('.header').filter(function() {
                 var data = $(this);
@@ -28,6 +31,24 @@ app.get('/scrape', function(req, res) {
             $('.txt-block[itemprop="director"]').filter(function() {
                 var data = $(this);
                 json.director = data.children().last().children().first().text();
+            });
+            $('.txt-block[itemprop="creator"]').filter(function() {
+                var data = $(this);
+                for(var i =0;i<data.children('a').length;i++)
+                json.writers.push(data.children('a').eq(i).text());
+            });
+            $('.txt-block[itemprop="actors"]').filter(function() {
+                var data = $(this);
+                for(var i =0;i<data.children('a').length;i++)
+                json.actors.push(data.children('a').eq(i).text());
+            });
+            $('p[itemprop="description"]').filter(function(){
+                var data=$(this);
+                json.description=data.text();
+            });
+            $('#trivia').filter(function(){
+                var data=$(this);
+                console.log(data.children("").text())
             });
         }
         fs.writeFile('weboutput.json', JSON.stringify(json, null, 4), function(err) {
