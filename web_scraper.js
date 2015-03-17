@@ -46,10 +46,7 @@ app.get('/scrape', function(req, res) {
                 var data=$(this);
                 json.description=data.text();
             });
-            $('#trivia').filter(function(){
-                var data=$(this);
-                console.log(data.children().text())
-            });
+           
         }
         fs.writeFile('weboutput.json', JSON.stringify(json, null, 4), function(err) {
 
